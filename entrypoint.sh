@@ -4,7 +4,7 @@ set -e
 set -x
 
 # Parse YAML array using yq
-repositories=$(yq e '.repositories' .github/repositories.yaml)
+repositories=$(yq e '.repositories' $INPUT_DESTINATION_REPOS)
 
 if [ -z "$INPUT_SOURCE_FOLDER" ]
 then

@@ -10,8 +10,6 @@ RUN wget -q  https://api.github.com/repos/cli/cli/releases/latest \
     && rm -fr *
 
 ADD entrypoint.sh /entrypoint.sh
-ADD repositories.yaml /repositories.yaml
-
 RUN chmod +x /entrypoint.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
