@@ -1,0 +1,49 @@
+name: 'MDRCNY-Create Pull Request for Another Repository'
+description: 'Used for pull request a copy of a folder to another repository'
+inputs:
+  source_folder:
+    description: 'Source folder from origin'
+    required: true
+  destination_folder:
+    description: 'Destination folder to push the origin folder'
+    required: false
+  user_email:
+    description: 'Email for the git commit'
+    required: true
+  user_name:
+    description: 'GitHub username for the commit'
+    required: true
+  destination_head_branch:
+    description: 'The branch to create to push the changes. Cannot be master or main'
+    required: true
+  destination_base_branch:
+    description: 'The branch into which you want your code merged.'
+    required: false
+    default: "main"
+  pull_request_reviewers:
+    description: 'Pull request reviewers users'
+    required: false
+  title:
+    description: 'The title of the pull request'
+    required: false
+    default: "Pull Request for Repo:  ${{ github.repository }}"
+  body:
+    description: 'The body of the pull request'
+    required: false
+    default: " "
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.source-folder }}
+    - ${{ inputs.destination-folder }}
+    - ${{ inputs.user-email }}
+    - ${{ inputs.user-name }}
+    - ${{ inputs.destination-head-branch }}
+    - ${{ inputs.destination-base-branch }}
+    - ${{ inputs.pull-request-reviewers }}
+    - ${{ inputs.title }}
+    - ${{ inputs.body }}
+branding:
+  icon: 'git-commit'
+  color: 'green'
