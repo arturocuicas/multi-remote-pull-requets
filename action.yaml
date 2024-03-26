@@ -1,5 +1,5 @@
-name: 'Multi Remote Pull Requests for Anothers Repositories'
-description: 'Used for pull requests a copy of a folder to anothers repositories'
+name: 'Multi Remote Pull Requests for Another Repositories'
+description: 'Used for pull requests a copy of a folder to another repositories'
 inputs:
   source_folder:
     description: 'Source folder from origin'
